@@ -4,10 +4,10 @@ import banner from '../../../assets/images/banner_bg.jpg';
 export default function HomeBanner() {
   return (
     <section
-      className="relative w-full h-[60vh] min-h-[360px] bg-center bg-cover animate-bannerpan"
+      className="relative w-full h-[60vh] min-h-[360px] bg-center bg-cover animate-bannerpan overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(rgba(7, 15, 25, 0.55), rgba(7, 15, 25, 0.55)), url(${banner})`,
-        backgroundSize: '110% 110%'
+        backgroundSize: 'cover'
       }}
     >
       <div className="absolute inset-0 flex items-center justify-center text-center px-6">

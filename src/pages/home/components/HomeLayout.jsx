@@ -6,13 +6,15 @@ import HomeSubnavCards from './HomeSubnavCards';
 import AmbassadorMessage from './AmbassadorMessage';
 import Communiques from './Communiques';
 import EmbassyInfo from './EmbassyInfo';
+import UsefulLinks from './UsefulLinks';
+import HolidaysCalendar from './HolidaysCalendar';
 
 export default function HomeLayout() {
   const [lang, setLang] = useState('FR');
   const [section, setSection] = useState('Accueil');
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <TopBar currentLang={lang} onLanguageChange={setLang} />
       <Navbar current={section} onSelect={setSection} />
 
@@ -33,6 +35,12 @@ export default function HomeLayout() {
 
           {/* Section: Informations de l'ambassade (Map + Contact) */}
           <EmbassyInfo />
+
+          {/* Section: Liens utiles (slider logos) */}
+          <UsefulLinks />
+
+           {/* Section: Jours fériés (National & Pays hôte) */}
+           <HolidaysCalendar />
         </div>
       </main>
 

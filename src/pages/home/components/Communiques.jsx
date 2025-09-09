@@ -1,4 +1,6 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import communiques from '../../../assets/images/republic.png';
 const SAMPLE_COMMUNIQUES = [
@@ -24,6 +26,7 @@ const SAMPLE_COMMUNIQUES = [
 
 export default function Communiques({ items = SAMPLE_COMMUNIQUES }) {
   const trackRef = useRef(null);
+  const navigate = useNavigate();
 
   const scrollByAmount = (dir = 1) => {
     const el = trackRef.current;
@@ -34,11 +37,17 @@ export default function Communiques({ items = SAMPLE_COMMUNIQUES }) {
   };
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16">
+    <section className="py-8 sm:py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Communiqués</h2>
-          <div className="hidden sm:flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-3">
+            <Link
+              to="/ambassade/actualites"
+              className="inline-flex items-center px-3 h-9 rounded-md border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+            >
+              Voir plus
+            </Link>
             <button
               type="button"
               aria-label="Précédent"
@@ -87,7 +96,11 @@ export default function Communiques({ items = SAMPLE_COMMUNIQUES }) {
           >
             {items.map((c) => (
               <li key={c.id} className="snap-start shrink-0 w-72 sm:w-80 lg:w-[26rem] group">
-                <article className="h-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition">
+                <button
+                  type="button"
+                  onClick={() => navigate('/ambassade/actualites', { state: { selectedComm: c } })}
+                  className="w-full text-left h-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition"
+                >
                   <div className="aspect-[16/10] overflow-hidden bg-gray-100">
                     <img
                       src={c.image}
@@ -100,7 +113,7 @@ export default function Communiques({ items = SAMPLE_COMMUNIQUES }) {
                     <p className="text-xs text-gray-500">{new Date(c.date).toLocaleDateString()}</p>
                     <h3 className="mt-1 text-base font-semibold text-gray-900 line-clamp-2">{c.title}</h3>
                   </div>
-                </article>
+                </button>
               </li>
             ))}
           </ul>
