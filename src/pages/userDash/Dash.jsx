@@ -35,9 +35,37 @@ export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) 
     passeport: 'NE1234567',
     adresse: '12 Rue de la Paix, 75002 Paris, France',
     profession: 'Étudiant',
-    statut: false, // boolean registration status
+    statut: true, // boolean registration status
     dateVenue: '12/09/2023',
     categorie: 'etudiant', // etudiant | professionnel | touriste | refugie
+
+    // Documents liés au profil (URLs à remplacer par vos fichiers réels)
+    documents: [
+      { name: 'Fiche ambassade', url: '/docs/fiche-ambassade.pdf' },
+      { name: 'Carte consulaire', url: '/docs/carte-consulaire.pdf' },
+    ],
+
+    // Demandes liées au profil
+    demandes: [
+      { id: 'D-001', type: 'Demande de rapatriement', status: 'en_cours', createdAt: '2025-08-10', ref: 'RPT-2025-0001' },
+      { id: 'D-002', type: 'Carte consulaire', status: 'terminee', createdAt: '2025-06-02', ref: 'CC-2025-0142' },
+      { id: 'D-003', type: 'Prise en charge', status: 'annulee', createdAt: '2025-07-15', ref: 'PEC-2025-0033' },
+      { id: 'D-004', type: 'Carte consulaire', status: 'en_cours', createdAt: '2025-09-01', ref: 'CC-2025-0201' },
+    ],
+
+    // Rendez-vous liés au profil
+    rendezvous: [
+      { id: 'RV-001', objet: 'Renouvellement passeport', status: 'pending', date: '2025-09-20 10:00', lieu: 'Ambassade - Bureau 2' },
+      { id: 'RV-002', objet: 'Dépôt dossier carte consulaire', status: 'approuve', date: '2025-09-05 14:30', lieu: 'Ambassade - Accueil' },
+      { id: 'RV-003', objet: 'Entretien assistance', status: 'decline', date: '2025-08-28 09:00', lieu: 'Visio' },
+    ],
+
+    // Inscriptions (sorted in panel by most recent first)
+    inscriptions: [
+      { id: 'I-003', type: 'Inscription académique', date: '2025-09-01', status: 'en_cours', ref: 'ACA-2025-0102' },
+      { id: 'I-002', type: 'Registre consulaire', date: '2025-07-12', status: 'validee', ref: 'REG-2025-0045' },
+      { id: 'I-001', type: 'Inscription consulaire', date: '2025-05-28', status: 'annulee', ref: 'CON-2025-0011' },
+    ],
 
     // Étudiant
     academic: {
@@ -47,29 +75,6 @@ export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) 
       cycle: 'Master',
       typeBourse: 'Bourse d’État',
     },
-
-    // Professionnel
-    // professional: {
-    //   entreprise: 'TechCorp',
-    //   diplome: 'Ingénieur',
-    //   specialite: 'Réseaux',
-    //   poste: 'Administrateur système',
-    // },
-
-    // Touriste
-    // tourist: {
-    //   motif: 'Visite familiale',
-    //   dateArrivee: '01/08/2025',
-    //   dateDepart: '21/08/2025',
-    //   hebergement: 'Hôtel Paris Centre',
-    // },
-
-    // Réfugié
-    // refugee: {
-    //   statutAsile: 'Demande en cours',
-    //   numeroDossier: 'RF-2025-0001',
-    //   organisation: 'HCR',
-    // },
   };
 
   const renderPanel = () => {
@@ -84,13 +89,23 @@ export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) 
           />
         );
       case 'inscriptions':
-        return <InscriptionsPanel />;
+        return <InscriptionsPanel inscriptions={profileData.inscriptions} />;
       case 'rendezvous':
-        return <RendezVousPanel />;
+        return (
+          <RendezVousPanel
+            rendezvous={profileData.rendezvous}
+            onNew={() => navigate('/dash/rendezvous/nouveau')}
+          />
+        );
       case 'demandes':
-        return <DemandesPanel />;
+        return (
+          <DemandesPanel
+            demandes={profileData.demandes}
+            onNew={() => navigate('/dash/demandes/nouvelle')}
+          />
+        );
       case 'documents':
-        return <DocumentsPanel />;
+        return <DocumentsPanel documents={profileData.documents} />;
       case 'alertes':
         return <AlertesPanel />;
       default:
