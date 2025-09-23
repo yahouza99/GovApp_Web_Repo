@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SubscribeForm from './SubscribeForm';
+import FirstSubscribeForm from './FirstSubscribeForm';
 
 function Field({ label, value }) {
   return (
@@ -20,7 +22,13 @@ function Section({ title, children }) {
   );
 }
 
+function hasValues(obj) {
+  return obj && Object.values(obj).some(Boolean);
+}
+
 export default function ProfilePanel({ profile = {}, isRegistered = false, onUpdateClick = () => {}, onRegisterClick = () => {} }) {
+  const [editing, setEditing] = useState(false);
+  const [registering, setRegistering] = useState(false);
   const {
     nom,
     prenom,
@@ -37,8 +45,6 @@ export default function ProfilePanel({ profile = {}, isRegistered = false, onUpd
     refugee = {},
   } = profile;
 
-  const hasValues = (obj) => obj && Object.values(obj).some((v) => v);
-
   return (
     <div className="rounded-xl border border-emerald-200 bg-emerald-50/40 p-5 mb-4">
       <div className="flex items-start justify-between gap-3">
@@ -48,10 +54,10 @@ export default function ProfilePanel({ profile = {}, isRegistered = false, onUpd
             Gérez vos informations personnelles, coordonnées et statut d'inscription.
           </p>
         </div>
-        {isRegistered && (
+        {isRegistered && !editing && (
           <button
             type="button"
-            onClick={onUpdateClick}
+            onClick={() => setEditing(true)}
             className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-600 text-white text-sm hover:bg-emerald-700"
           >
             Mettre à jour mon inscription
@@ -60,21 +66,55 @@ export default function ProfilePanel({ profile = {}, isRegistered = false, onUpd
       </div>
 
       {!isRegistered ? (
-        <div className="mt-4 rounded-lg border-2 border-dashed border-emerald-300 bg-emerald-50 p-5 text-sm">
-          <p className="text-gray-800 font-medium">Vous n'êtes pas encore inscrit au registre consulaire.</p>
-          <p className="text-gray-600 mt-1">L'inscription permet à l'ambassade de mieux vous accompagner.</p>
-          <button
-            type="button"
-            onClick={onRegisterClick}
-            className="mt-3 inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700"
-          >
-            S'inscrire au registre
-          </button>
+        registering ? (
+          <div className="mt-4">
+            <FirstSubscribeForm
+              initialValues={{ nom, prenom, passeport, adresse, profession }}
+              onCancel={() => setRegistering(false)}
+              onSubmit={(payload) => {
+                if (typeof onRegisterClick === 'function') {
+                  onRegisterClick(payload);
+                }
+                setRegistering(false);
+              }}
+            />
+          </div>
+        ) : (
+          <div className="mt-4 rounded-lg border-2 border-dashed border-emerald-300 bg-emerald-50 p-5 text-sm">
+            <p className="text-gray-800 font-medium">Vous n'êtes pas encore inscrit au registre consulaire.</p>
+            <p className="text-gray-600 mt-1">L'inscription permet à l'ambassade de mieux vous accompagner.</p>
+            <button
+              type="button"
+              onClick={() => setRegistering(true)}
+              className="mt-3 inline-flex items-center gap-2 px-3 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700"
+            >
+              S'inscrire au registre
+            </button>
+          </div>
+        )
+      ) : editing ? (
+        <div className="mt-4">
+          <SubscribeForm
+            categorie={categorie}
+            initialValues={
+              categorie === 'etudiant' ? academic :
+              categorie === 'professionnel' ? professional :
+              categorie === 'touriste' ? tourist :
+              categorie === 'refugie' ? refugee : {}
+            }
+            onCancel={() => setEditing(false)}
+            onSubmit={(payload) => {
+              if (typeof onUpdateClick === 'function') {
+                onUpdateClick(payload);
+              }
+              setEditing(false);
+            }}
+          />
         </div>
       ) : (
         <>
           {/* Informations générales */}
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field label="Nom" value={nom} />
             <Field label="Prénom" value={prenom} />
             <Field label="Email" value={email} />

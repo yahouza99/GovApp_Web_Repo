@@ -12,16 +12,18 @@ import DemandesPanel from './components/DemandesPanel';
 import DocumentsPanel from './components/DocumentsPanel';
 import AlertesPanel from './components/AlertesPanel';
 import TileCarousel from './components/TileCarousel';
+import NewRequestForm from './components/NewRequestForm';
 
 export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(null);
+  const [creatingDemande, setCreatingDemande] = useState(false);
 
   const tiles = [
     { key: 'profil', title: 'Mon profil', icon: IdCard, onClick: () => setSelected('profil') },
-    { key: 'inscriptions', title: 'Mes inscriptions', icon: GraduationCap, onClick: () => setSelected('inscriptions') },
     { key: 'demandes', title: 'Mes demandes', icon: BriefcaseBusiness, onClick: () => setSelected('demandes') },
     { key: 'documents', title: 'Mes documents', icon: FileText, onClick: () => setSelected('documents') },
+    { key: 'inscriptions', title: 'Mes inscriptions', icon: GraduationCap, onClick: () => setSelected('inscriptions') },
     { key: 'rendezvous', title: 'Rendez-vous', icon: CalendarCheck , onClick: () => setSelected('rendezvous') },
     { key: 'alertes', title: 'Alertes', icon:  AlertTriangle, onClick: () => setSelected('alertes') },
   ];
@@ -35,7 +37,7 @@ export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) 
     passeport: 'NE1234567',
     adresse: '12 Rue de la Paix, 75002 Paris, France',
     profession: 'Étudiant',
-    statut: true, // boolean registration status
+    statut: false, // boolean registration status
     dateVenue: '12/09/2023',
     categorie: 'etudiant', // etudiant | professionnel | touriste | refugie
 
@@ -77,6 +79,12 @@ export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) 
     },
   };
 
+  const handleCreateDemande = async (payload) => {
+    console.log('Nouvelle demande soumise:', payload);
+    // TODO: appeler votre API pour créer la demande
+    setCreatingDemande(false);
+  };
+
   const renderPanel = () => {
     switch (selected) {
       case 'profil':
@@ -98,10 +106,15 @@ export default function Dash({ user = { name: 'Yahouza', role: 'Étudiant' } }) 
           />
         );
       case 'demandes':
-        return (
+        return creatingDemande ? (
+          <NewRequestForm
+            onSubmit={handleCreateDemande}
+            onCancel={() => setCreatingDemande(false)}
+          />
+        ) : (
           <DemandesPanel
             demandes={profileData.demandes}
-            onNew={() => navigate('/dash/demandes/nouvelle')}
+            onNew={() => setCreatingDemande(true)}
           />
         );
       case 'documents':
