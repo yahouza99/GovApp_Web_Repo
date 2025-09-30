@@ -1,0 +1,79 @@
+{
+  "language": {
+    "fr": "French",
+    "en": "English",
+    "ar": "Arabic",
+    "es": "Spanish"
+  },
+  "menu": {
+    "home": "Home",
+    "embassy": "Embassy",
+    "country": "Niger",
+    "academic": "Academic services",
+    "consular": "Consular services"
+  },
+  "subnav": {
+    "republic": "Republic of Niger",
+    "investment": "Invest in Niger",
+    "tourism": "Tourism",
+    "team": "Personnel",
+    "news": "News",
+    "ambassy-and-me": "Embassy and me",
+    "visa": "Visa",
+    "passport": "Passport",
+    "consular": "Consular",
+    "charge": "Consular assistance",
+    "consularPass": "Consular Pass",
+    "civil": "Civil status",
+    "scholarship": "Scholarship",
+    "registration": "Registration",
+    "renewal": "Renewal",
+    "complaint": "Complaint"
+  },
+  "homeItem": {
+    "actualites": "News",
+    "e-services": "e-services",
+    "appointment": "Appointment",
+    "ambassy-and-me": "Embassy and me"
+  },
+  "actions": {
+    "askQuestion": "Ask a question",
+    "login": "Log in",
+    "logout": "Log out",
+    "register": "Register"
+  },
+  "titles": {
+    "welcome": "Welcome to your Embassy space"
+  },
+  "banner": {
+    "title": "Welcome to the Niger Embassy",
+    "description": "For citizens, visitors. Information, services and online assistance."
+  },
+  "ambassadorMessage": {
+    "title": "Ambassador's Message"
+  },
+  "communiques": {
+    "title": "News",
+    "seeMore": "See more"
+  },
+  "embassyInfo": {
+    "title": "Embassy information",
+    "contact": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Hours",
+    "networks": "Networks"
+  },
+  "usefulLinks": {
+    "title": "Useful links"
+  },
+  "holidaysCalendar": {
+    "title": "National holidays 2025",
+    "national": "National (Niger)",
+    "host": "Host country"
+  },
+  "floatingButton": {
+    "question": "Question"
+  }
+}

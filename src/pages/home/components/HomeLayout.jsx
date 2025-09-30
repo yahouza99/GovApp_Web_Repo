@@ -8,10 +8,12 @@ import Communiques from './Communiques';
 import EmbassyInfo from './EmbassyInfo';
 import UsefulLinks from './UsefulLinks';
 import HolidaysCalendar from './HolidaysCalendar';
+import { useTranslation } from 'react-i18next';
 
 export default function HomeLayout() {
-  const [lang, setLang] = useState('FR');
+  const [lang, setLang] = useState('fr');
   const [section, setSection] = useState('Accueil');
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
@@ -39,13 +41,13 @@ export default function HomeLayout() {
           {/* Section: Liens utiles (slider logos) */}
           <UsefulLinks />
 
-           {/* Section: Jours fériés (National & Pays hôte) */}
-           <HolidaysCalendar />
+          {/* Section: Jours fériés (National & Pays hôte) */}
+          <HolidaysCalendar />
         </div>
       </main>
 
       <footer className="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Ambassade du Niger
+        {t('footer.copyright', { defaultValue: `© ${new Date().getFullYear()} Ambassade du Niger`, year: new Date().getFullYear() })}
       </footer>
     </div>
   );

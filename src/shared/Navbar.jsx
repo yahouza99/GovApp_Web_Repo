@@ -4,22 +4,8 @@ import "aos/dist/aos.css";
 import logo from '../assets/images/logo.jpg';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-const sections = [
-  { id: 'Accueil', label: 'Accueil' },
-  { id: 'Niger', label: 'Niger' },
-  { id: 'Ambassade', label: 'Ambassade' },
-  { id: 'Services consulaires', label: 'Services consulaires' },
-  { id: 'Services académiques', label: 'Services académiques' },
-];
-
-const subnav = {
-  Accueil: [],
-  Niger: ['République du Niger', 'Investir au Niger', 'Tourisme'],
-  Ambassade: ['Personnels', 'Actualités','Ambassade et moi'],
-  'Services consulaires': ['Visa', 'Passeport', 'Carte consulaire', 'Prise en charge', 'Laissez-passer', 'Etat civil'],
-  'Services académiques': ['Bourses', 'Inscription', 'Renouvellement', 'Réclamation'],
-};
 
 export default function Navbar({ current = 'Accueil', onSelect }) {
   const [open, setOpen] = useState(false);
@@ -28,6 +14,24 @@ export default function Navbar({ current = 'Accueil', onSelect }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const itemsFor = (id) => subnav[id] || [];
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+
+  const sections = [
+    { id: 'Accueil', label: t('menu.home') },
+    { id: 'Niger', label: t('menu.country') },
+    { id: 'Ambassade', label: t('menu.embassy') },
+    { id: 'Services consulaires', label: t('menu.consular') },
+    { id: 'Services académiques', label: t('menu.academic') },
+  ];
+  
+  const subnav = {
+    Accueil: [],
+    Niger: ['République du Niger', 'Investir au Niger', 'Tourisme'],
+    Ambassade: ['Personnels', 'Actualités','Ambassade et moi'],
+    'Services consulaires': ['Visa', 'Passeport', 'Carte consulaire', 'Prise en charge', 'Laissez-passer', 'Etat civil'],
+    'Services académiques': ['Bourses', 'Inscription', 'Renouvellement', 'Réclamation'],
+  };
 
   // Track scroll to collapse TopBar (nav moves to top:0) and add shadow
   useEffect(() => {

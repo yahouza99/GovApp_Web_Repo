@@ -2,6 +2,7 @@ import React, { useRef,useEffect } from 'react';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import logo from '../../../assets/images/republic.png';
+import { useTranslation } from 'react-i18next';
 // Remplacez ces logos par vos ressources locales (ex: dans src/assets/images/)
 const DEFAULT_LINKS = [
   { id: 'presidence', name: 'Présidence', url: '#', logo: logo },
@@ -14,6 +15,7 @@ const DEFAULT_LINKS = [
 ];
 
 export default function UsefulLinks({ items = DEFAULT_LINKS }) {
+  const { t } = useTranslation();
   const trackRef = useRef(null);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function UsefulLinks({ items = DEFAULT_LINKS }) {
     <section className="py-10 sm:py-12 lg:py-16 bg-gray-50" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Liens utiles</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t("usefulLinks.title")}</h2>
           <div className="hidden sm:flex items-center gap-2">
             <button
               type="button"

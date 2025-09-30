@@ -1,0 +1,79 @@
+{
+  "language": {
+    "fr": "Français",
+    "en": "Anglais",
+    "ar": "Arabe",
+    "es": "Espagnol"
+  },
+  "menu": {
+    "home": "Accueil",
+    "embassy": "Ambassade",
+    "country": "Niger",
+    "academic": "Services académiques",
+    "consular": "Services consulaires"
+  },
+  "subnav": {
+    "republic": "République du Niger",
+    "investment": "Investir au Niger",
+    "tourism": "Tourisme",
+    "team": "Personnel",
+    "news": "Actualités",
+    "ambassy-and-me": "Ambassade et moi",
+    "visa": "Visa",
+    "passport": "Passeport",
+    "consular": "Carte consulaire",
+    "charge": "Prise en charge",
+    "consularPass": "Laissez-passer",
+    "civil": "Etat civil",
+    "scholarship": "Bourses",
+    "registration": "Inscription",
+    "renewal": "Renouvellement",
+    "complaint": "Réclamation"
+  },
+  "homeItem": {
+    "actualites": "Actualités",
+    "e-services": "e-services",
+    "appointment": "Rendez-vous",
+    "ambassy-and-me": "Ambassade et moi"
+  },
+  "actions": {
+    "askQuestion": "Poser une question",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "register": "S'inscrire"
+  },
+  "titles": {
+    "welcome": "Bienvenue sur votre espace Ambassade"
+  },
+  "banner": {
+    "title": "Bienvenue à l'Ambassade du Niger",
+    "description": "Au service des citoyens, visiteurs. Informations, services et accompagnement en ligne."
+  },
+  "ambassadorMessage": {
+    "title": "Mot de l'ambassadeur"
+  },
+  "communiques": {
+    "title": "Communiqués",
+    "seeMore": "Voir plus"
+  },
+  "embassyInfo": {
+    "title": "Informations de l'ambassade",
+    "contact": "Contact",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "hours": "Horaires",
+    "networks": "Réseaux"
+  },
+  "usefulLinks": {
+    "title": "Liens utiles"
+  },
+  "holidaysCalendar": {
+    "title": "Jours fériés officiels 2025",
+    "national": "National (Niger)",
+    "host": "Pays hôte"
+  },
+  "floatingButton": {
+    "question": "Question"
+  }
+}

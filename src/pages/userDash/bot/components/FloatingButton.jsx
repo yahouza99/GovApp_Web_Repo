@@ -1,7 +1,9 @@
 import React from 'react';
 import { Bot } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function FloatingButton({ onClick }) {
+  const { t } = useTranslation();
   return (
     <button
       type="button"
@@ -10,7 +12,7 @@ export default function FloatingButton({ onClick }) {
       aria-label="Question"
     >
       <Bot className="h-5 w-5" />
-      <span className="font-medium">Question</span>
+      <span className="font-medium">{t("floatingButton.question")}</span>
     </button>
   );
 }

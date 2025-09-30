@@ -1,0 +1,80 @@
+{
+  "language": {
+    "fr": "الفرنسية",
+    "en": "الإنجليزية",
+    "ar": "العربية",
+    "es": "الإسبانية"
+  },
+  "menu": {
+    "home": "الصفحة الرئيسية",
+    "embassy": "السفارة",
+    "country": "النيجر",
+    "academic": "الأكاديمية",
+    "consular": "القنصلية",
+    "dashboard": "مساحتي"
+  },
+  "subnav": {
+    "republic": "Republic of Niger",
+    "investment": "Invest in Niger",
+    "tourism": "Tourism",
+    "team": "Personnel",
+    "news": "News",
+    "ambassy-and-me": "Embassy and me",
+    "visa": "Visa",
+    "passport": "Passport",
+    "consular": "Consular",
+    "charge": "Charge",
+    "consularPass": "Consular Pass",
+    "civil": "Civil",
+    "scholarship": "Scholarship",
+    "registration": "Registration",
+    "renewal": "Renewal",
+    "complaint": "Complaint"
+  },
+  "homeItem": {
+    "actualites": "أخبار",
+    "e-services": "خدمات إلكترونية",
+    "appointment": "الموعد",
+    "ambassy-and-me": "السفارة وأنا"
+  },
+  "actions": {
+    "askQuestion": "اطرح سؤالاً",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "register": "التسجيل"
+  },
+  "titles": {
+    "welcome": "مرحبًا بك في مساحة السفارة"
+  },
+  "banner": {
+    "title": "مرحبًا بك في مساحة السفارة",
+    "description": "في خدمة المواطنين والزوار. معلومات وخدمات ومرافقة عبر الإنترنت"
+  },
+  "ambassadorMessage": {
+    "title": "رسالة السفارة"
+  },
+  "communiques": {
+    "title": "أخبار",
+    "seeMore": "عرض المزيد"
+  },
+  "embassyInfo": {
+    "title": "معلومات السفارة",
+    "contact": "اتصال",
+    "address": "العنوان",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "hours": "الساعات",
+    "networks": "الشبكات"
+  },
+  "usefulLinks": {
+    "title": "الروابط المفيدة"
+  },
+  "holidaysCalendar": {
+    "title": "المواعيد العطلية",
+    "national": "النيجر",
+    "host": "السافر"
+  },
+  "floatingButton": {
+    "question": "سؤال"
+  }
+}

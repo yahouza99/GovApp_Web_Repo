@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 import communiques from '../../../assets/images/republic.png';
 const SAMPLE_COMMUNIQUES = [
   {
@@ -27,6 +27,7 @@ const SAMPLE_COMMUNIQUES = [
 export default function Communiques({ items = SAMPLE_COMMUNIQUES }) {
   const trackRef = useRef(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const scrollByAmount = (dir = 1) => {
     const el = trackRef.current;
@@ -40,13 +41,13 @@ export default function Communiques({ items = SAMPLE_COMMUNIQUES }) {
     <section className="py-8 sm:py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Communiqués</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t("communiques.title")}</h2>
           <div className="hidden sm:flex items-center gap-3">
             <Link
               to="/ambassade/actualites"
               className="inline-flex items-center px-3 h-9 rounded-md border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
             >
-              Voir plus
+              {t("communiques.seeMore")}
             </Link>
             <button
               type="button"

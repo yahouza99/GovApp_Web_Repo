@@ -2,16 +2,13 @@ import React, { useEffect } from 'react';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const HOME_ITEMS = [
-  { key: 'actualites', title: 'Actualités', icon: '🌍' },
-  { key: 'e-services', title: 'e-services', icon: '💻' },
-  { key: 'rendez-vous', title: 'Rendez-vous', icon: '📅' },
-  { key: 'ambassade-et-moi', title: 'Ambassade et moi', icon: '👤' },
-];
+
 
 export default function HomeSubnavCards({ onSelect }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -26,6 +23,14 @@ export default function HomeSubnavCards({ onSelect }) {
     const path = map[key];
     if (path) navigate(path);
   };
+
+  const HOME_ITEMS = [
+    { key: 'actualites', title: t('homeItem.actualites'), icon: '🌍' },
+    { key: 'e-services', title: t('homeItem.e-services'), icon: '💻' },
+    { key: 'rendez-vous', title: t('homeItem.appointment'), icon: '📅' },
+    { key: 'ambassade-et-moi', title: t('homeItem.ambassy-and-me'), icon: '👤' },
+  ];
+
   return (
     <div className="relative z-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

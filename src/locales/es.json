@@ -1,0 +1,80 @@
+{
+    "language": {
+      "fr": "Francés",
+      "en": "Inglés",
+      "ar": "Árabe",
+      "es": "Español"
+    },
+    "menu": {
+      "home": "Inicio",
+      "embassy": "Embajada",
+      "country": "Níger",
+      "academic": "Académico",
+      "consular": "Consular",
+      "dashboard": "Mi espacio"
+    },
+    "subnav": {
+    "republic": "Republic of Niger",
+    "investment": "Invest in Niger",
+    "tourism": "Tourism",
+    "team": "Personnel",
+    "news": "News",
+    "ambassy-and-me": "Embassy and me",
+    "visa": "Visa",
+    "passport": "Passport",
+    "consular": "Consular",
+    "charge": "Charge",
+    "consularPass": "Consular Pass",
+    "civil": "Civil",
+    "scholarship": "Scholarship",
+    "registration": "Registration",
+    "renewal": "Renewal",
+    "complaint": "Complaint"
+  },
+    "homeItem": {
+      "actualites": "Noticias",
+      "e-services": "e-services",
+      "appointment": "Agenda",
+      "ambassy-and-me": "Embassy y yo"
+    },
+    "actions": {
+      "askQuestion": "Hacer una pregunta",
+      "login": "Iniciar sesión",
+      "logout": "Cerrar sesión",
+      "register": "Registrarse"
+    },
+    "titles": {
+      "welcome": "Bienvenido a su espacio de la Embajada"
+    },
+    "banner": {
+      "title": "Bienvenido a la Embajada del Niger",
+      "description": "Para ciudadanos, visitantes. Información, servicios y asistencia en línea."
+    },
+    "ambassadorMessage": {
+      "title": "Mensaje del embajador"
+    },
+    "communiques": {
+      "title": "Noticias",
+      "seeMore": "Ver más"
+    },
+    "embassyInfo": {
+      "title": "Información de la Embajada",
+      "contact": "Contacto",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "email": "Email",
+      "hours": "Horarios",
+      "networks": "Redes"
+    },
+    "usefulLinks": {
+      "title": "Enlaces útiles"
+    },
+    "holidaysCalendar": {
+      "title": "Jornadas festivas oficiales 2025",
+      "national": "National (Niger)",
+      "host": "Pais anfitrion"
+    },
+    "floatingButton": {
+      "question": "Pregunta"
+    }
+  }

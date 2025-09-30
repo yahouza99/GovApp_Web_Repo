@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import i18n from './i18n';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import HomeLayout from './pages/home/components/HomeLayout';
 import Embassy from './pages/embassy/Embassy';

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
 // Simple static data; can be replaced by API later
 const NATIONAL_HOLIDAYS = [
     { date: '2025-01-01', label: 'Jour de l’An' },
@@ -44,13 +44,14 @@ function formatDate(iso) {
 }
 
 export default function HolidaysCalendar({ national = NATIONAL_HOLIDAYS, host = HOST_HOLIDAYS, hostLabel = 'Pays hôte' }) {
+  const { t } = useTranslation();
   const [tab, setTab] = useState('national');
   const list = useMemo(() => (tab === 'national' ? national : host), [tab, national, host]);
 
   return (
     <section className="mt-12">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Jours fériés officiels 2025</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t("holidaysCalendar.title")}</h2>
       </div>
 
       {/* Tabs */}
@@ -60,14 +61,14 @@ export default function HolidaysCalendar({ national = NATIONAL_HOLIDAYS, host = 
           className={`px-3 py-1.5 text-sm rounded-md transition ${tab === 'national' ? 'bg-emerald-600 text-white' : 'text-gray-700 hover:bg-gray-50'}`}
           onClick={() => setTab('national')}
         >
-          National (Niger)
+          {t("holidaysCalendar.national")}
         </button>
         <button
           type="button"
           className={`ml-1 px-3 py-1.5 text-sm rounded-md transition ${tab === 'host' ? 'bg-emerald-600 text-white' : 'text-gray-700 hover:bg-gray-50'}`}
           onClick={() => setTab('host')}
         >
-          {hostLabel}
+          {t("holidaysCalendar.host")}
         </button>
       </div>
 

@@ -1,15 +1,17 @@
 import React ,{useEffect} from 'react';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { useTranslation } from 'react-i18next';
 
 export default function EmbassyInfo() {
+  const { t } = useTranslation();
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
   return (
     <section className="py-10 sm:py-12 lg:py-16" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Informations de l'ambassade</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t("embassyInfo.title")}</h2>
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Map */}
           <div className="rounded-lg overflow-hidden border border-gray-200 bg-white shadow-sm">
@@ -28,16 +30,16 @@ export default function EmbassyInfo() {
 
           {/* Contact details */}
           <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-5">
-            <h3 className="text-lg font-semibold text-gray-900">Contact</h3>
+            <h3 className="text-lg font-semibold text-gray-900">{t("embassyInfo.contact")}</h3>
             <ul className="mt-3 space-y-2 text-gray-700">
-              <li><span className="font-medium">Adresse:</span> 123, Avenue Ahmed Balafrej, Rabat, Maroc</li>
-              <li><span className="font-medium">Téléphone:</span> <a className="text-emerald-700 hover:underline" href="tel:+212653756684">212 6 53 75 66 84</a></li>
-              <li><span className="font-medium">Email:</span> <a className="text-emerald-700 hover:underline" href="mailto:contact@ambassadeniger-ma.org">contact@ambassadeniger-ma.org</a></li>
-              <li><span className="font-medium">Horaires:</span> Lun - Ven, 09:00 - 16:00</li>
+              <li><span className="font-medium">{t("embassyInfo.address")}:</span> 123, Avenue Ahmed Balafrej, Rabat, Maroc</li>
+              <li><span className="font-medium">{t("embassyInfo.phone")}:</span> <a className="text-emerald-700 hover:underline" href="tel:+212653756684">212 6 53 75 66 84</a></li>
+              <li><span className="font-medium">{t("embassyInfo.email")}:</span> <a className="text-emerald-700 hover:underline" href="mailto:contact@ambassadeniger-ma.org">contact@ambassadeniger-ma.org</a></li>
+              <li><span className="font-medium">{t("embassyInfo.hours")}:</span> Lun - Ven, 09:00 - 16:00</li>
             </ul>
 
             <div className="mt-5">
-              <h4 className="text-md font-semibold text-gray-900">Réseaux</h4>
+              <h4 className="text-md font-semibold text-gray-900">{t("embassyInfo.networks")}</h4>
               <div className="mt-2 flex gap-3 text-sm text-gray-700">
                 <a className="hover:text-emerald-700" href="#">Facebook</a>
                 <a className="hover:text-emerald-700" href="#">Twitter</a>
